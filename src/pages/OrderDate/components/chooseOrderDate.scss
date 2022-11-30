@@ -1,0 +1,28 @@
+.choose-date {
+  padding: 20px 0;
+  border-top: 1px solid $border;
+  &__content {
+    max-height: 243px;
+    overflow: hidden;
+    transition: all 0.8s linear;
+    &.active {
+      max-height: 800px;
+    }
+  }
+  &__row {
+    padding: 20px 0;
+    border-bottom: 1px solid $border;
+  }
+  &__btn {
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: $danger;
+    font-weight: 500;
+    padding-top: 15px;
+    &::before {
+      content: '<';
+      padding-right: 5px;
+    }
+  }
+}

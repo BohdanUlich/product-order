@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Layout } from '../components'
-import { OrderDate, PersonalData } from '../pages'
+import { OrderDate, Payment, PersonalData } from '../pages'
 
 export const Router: FC = () => {
     return (
@@ -9,6 +9,7 @@ export const Router: FC = () => {
             <Route path="/" element={<Layout />}>
                 <Route index element={<PersonalData />} />
                 <Route path="/order-date" element={<OrderDate />} />
+                <Route path="/payment" element={<Payment />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
         </Routes>

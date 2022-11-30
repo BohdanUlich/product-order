@@ -14,7 +14,6 @@ const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?
 const Input = styled(TextField)({
     width: '100%',
 })
-
 const CustomButton = styled(Button)({
     height: '50px',
 })
@@ -44,7 +43,7 @@ export const PersonalData: FC = () => {
         resolver: yupResolver(schema),
     })
 
-    const Handlers = {
+    const Events = {
         onSubmit(data: TPersonalData) {
             dispatch(setPersonalData(data))
             return navigate('/order-date')
@@ -59,7 +58,7 @@ export const PersonalData: FC = () => {
     }, [])
 
     return (
-        <form onSubmit={handleSubmit((data) => Handlers.onSubmit(data as TPersonalData))} className="personal-data">
+        <form onSubmit={handleSubmit((data) => Events.onSubmit(data as TPersonalData))} className="personal-data">
             <div className="personal-data__container container column">
                 <h1 className="personal-data__title title">Personal Information</h1>
 

@@ -1,3 +1,3 @@
 export * from './PersonalData/PersonalData'
-export * from './OrderDate/OrderDate'
+export * from './OrderDate'
 export * from './Payment/Payment'

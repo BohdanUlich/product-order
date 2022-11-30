@@ -84,6 +84,7 @@ $white: #ffffff;
 $black: #000000;
 $secondary: rgb(69, 33, 0);
 $danger: #d32f2f;
+$border: rgb(209, 209, 209);
 $breakpoints: (
   'xs': 480px,
   'sm': 576px,
@@ -103,7 +104,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 60px 0;
+  padding-top: 120px;
   height: 100%;
 }
 
@@ -120,6 +121,11 @@ body {
   color: $secondary;
 }
 
+.subtitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .row {
   display: flex;
   gap: 40px;
@@ -134,6 +140,10 @@ body {
   justify-content: space-between;
 }
 
+.align-center {
+  align-items: center;
+}
+
 .input-container {
   width: 100%;
   gap: 10px;
@@ -144,5 +154,7 @@ body {
   color: $danger;
 }
 
-@import './pages/PersonalData/personal-data.scss';
+@import './pages/PersonalData/personalData.scss';
 @import './components/Stepper/stepper.scss';
+@import './pages/OrderDate/components/chooseOrderDate.scss';
+@import './pages/OrderDate/orderDate.scss';

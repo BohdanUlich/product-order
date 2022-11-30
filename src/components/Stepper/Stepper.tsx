@@ -12,7 +12,7 @@ export const Stepper = () => {
         () => [
             { label: 'Personal Information', route: '/', index: 0 },
             { label: 'Coordination of arrival', route: '/order-date', index: 1 },
-            { label: 'Payment', route: '/', index: 2 },
+            { label: 'Payment', route: '/payment', index: 2 },
         ],
         []
     )
@@ -21,11 +21,14 @@ export const Stepper = () => {
 
     useEffect(() => {
         if (location.pathname === '/order-date') {
-            Handlers.handleSetStep(1)
+            Events.handleSetStep(1)
+        }
+        if (location.pathname === '/payment') {
+            Events.handleSetStep(2)
         }
     }, [location])
 
-    const Handlers = {
+    const Events = {
         handleSetStep(index: number) {
             setActiveStep(index)
         },
@@ -45,7 +48,7 @@ export const Stepper = () => {
                             <Step key={step.label} {...stepProps}>
                                 <Link to={step.index < activeStep ? step.route : steps[activeStep].route}>
                                     <StepLabel
-                                        onClick={() => Handlers.handleClickOnStep(step.index)}
+                                        onClick={() => Events.handleClickOnStep(step.index)}
                                         sx={{ cursor: 'pointer' }}
                                     >
                                         {step.label}

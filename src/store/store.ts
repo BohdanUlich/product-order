@@ -2,6 +2,7 @@ import { configureStore, ThunkAction, Action, combineReducers, getDefaultMiddlew
 import storage from 'redux-persist/lib/storage'
 import { FLUSH, PERSIST, persistReducer, persistStore, REHYDRATE, REGISTER, PURGE, PAUSE } from 'redux-persist'
 import personalDataReducer from './personalData/personalDataSlice'
+import deliveryDateReducer from './deliveryDate/deliveryDateSlice'
 
 const persistConfig = {
   key: 'root',
@@ -10,6 +11,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   personalData: personalDataReducer,
+  deliveryDate: deliveryDateReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
