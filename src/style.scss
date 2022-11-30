@@ -1,0 +1,148 @@
+/*null style*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+/*null style*/
+
+/*variables*/
+$white: #ffffff;
+$black: #000000;
+$secondary: rgb(69, 33, 0);
+$danger: #d32f2f;
+$breakpoints: (
+  'xs': 480px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+);
+/*variables*/
+
+#root {
+  height: 100%;
+}
+body {
+  font-family: 'PT Serif', serif;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 60px 0;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: $secondary;
+}
+
+.row {
+  display: flex;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify {
+  justify-content: space-between;
+}
+
+.input-container {
+  width: 100%;
+  gap: 10px;
+}
+
+.error-message {
+  padding-left: 14px;
+  color: $danger;
+}
+
+@import './pages/PersonalData/personal-data.scss';
+@import './components/Stepper/stepper.scss';
