@@ -2,23 +2,20 @@ import { FC } from 'react'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
-import OutlinedInput from '@mui/material/OutlinedInput'
-import { styled } from '@mui/material/styles'
 import { ChooseOrderDate } from './components'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { setSelectedStore } from '../../store'
 import Button from '@mui/material/Button'
-import { Link } from 'react-router-dom'
-
-const Input = styled(OutlinedInput)({
-    borderRadius: '30px',
-    height: '40px',
-})
+import { useNavigate } from 'react-router-dom'
+import { Loader } from '../../components'
+import { Input } from './styled'
 
 export const OrderDate: FC = () => {
-    const { selectedStore, selectedDate } = useAppSelector((state) => state.deliveryDate)
+    const { selectedStore, selectedDate, loading } = useAppSelector((state) => state.deliveryDate)
 
     const dispatch = useAppDispatch()
+
+    const navigate = useNavigate()
 
     const Events = {
         handleChange(event: SelectChangeEvent<string>) {
@@ -27,6 +24,12 @@ export const OrderDate: FC = () => {
             } = event
 
             dispatch(setSelectedStore(value))
+        },
+        handleBackToPersonalData() {
+            navigate('/')
+        },
+        handleContinueToPay() {
+            navigate('/payment')
         },
     }
 
@@ -59,8 +62,14 @@ export const OrderDate: FC = () => {
                 <ChooseOrderDate />
 
                 <div className="order-date__btns row justify">
-                    <Button variant="outlined" color="error" size="large">
-                        <Link to="/">Back to personal details</Link>
+                    <Button
+                        variant="outlined"
+                        color="error"
+                        size="large"
+                        onClick={Events.handleBackToPersonalData}
+                        sx={{ fontSize: '16px' }}
+                    >
+                        Back to personal details
                     </Button>
                     <Button
                         variant="contained"
@@ -68,11 +77,14 @@ export const OrderDate: FC = () => {
                         size="large"
                         type="submit"
                         disabled={selectedStore && selectedDate ? false : true}
+                        sx={{ fontSize: '16px' }}
+                        onClick={Events.handleContinueToPay}
                     >
-                        <Link to="/payment">Continue to pay</Link>
+                        Continue to pay
                     </Button>
                 </div>
             </div>
+            {loading && <Loader />}
         </div>
     )
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 /*null style*/
 * {
   padding: 0;
@@ -85,6 +87,7 @@ $black: #000000;
 $secondary: rgb(69, 33, 0);
 $danger: #d32f2f;
 $border: rgb(209, 209, 209);
+$background: rgb(238, 238, 238);
 $breakpoints: (
   'xs': 480px,
   'sm': 576px,
@@ -94,11 +97,32 @@ $breakpoints: (
 );
 /*variables*/
 
+@mixin sm {
+  @media (max-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, xl)) {
+    @content;
+  }
+}
+
 #root {
   height: 100%;
 }
 body {
-  font-family: 'PT Serif', serif;
+  font-family: 'Roboto', sans-serif;
 }
 .wrapper {
   display: flex;
@@ -106,6 +130,9 @@ body {
   flex-direction: column;
   padding-top: 120px;
   height: 100%;
+  @include sm {
+    padding-top: 60px;
+  }
 }
 
 .container {
@@ -113,12 +140,18 @@ body {
   max-width: 980px;
   padding: 0 40px;
   margin: 0 auto;
+  @include sm {
+    padding: 0 15px;
+  }
 }
 
 .title {
   font-size: 32px;
   font-weight: 600;
   color: $secondary;
+  @include sm {
+    font-size: 28px;
+  }
 }
 
 .subtitle {
@@ -129,6 +162,9 @@ body {
 .row {
   display: flex;
   gap: 40px;
+  @include sm {
+    gap: 20px;
+  }
 }
 
 .column {
@@ -158,3 +194,8 @@ body {
 @import './components/Stepper/stepper.scss';
 @import './pages/OrderDate/components/chooseOrderDate.scss';
 @import './pages/OrderDate/orderDate.scss';
+@import './pages/OrderDate/orderDate.scss';
+@import './pages/Payment/payment.scss';
+@import './pages/Payment/components/PaymentForm/paymentForm.scss';
+@import './pages/OrderData/orderData.scss';
+@import './components/Loader/loader.scss';

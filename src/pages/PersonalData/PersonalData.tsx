@@ -1,22 +1,14 @@
 import { FC, useEffect } from 'react'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { styled } from '@mui/material/styles'
 import { setPersonalData, TPersonalData } from '../../store'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { useNavigate } from 'react-router-dom'
+import { Input } from '../../components/StyledComponents'
+import { CustomButton } from './styled'
 
 const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
-
-const Input = styled(TextField)({
-    width: '100%',
-})
-const CustomButton = styled(Button)({
-    height: '50px',
-})
 
 export const PersonalData: FC = () => {
     const { firstName, lastName, email, phone } = useAppSelector((state) => state.personalData)
@@ -46,7 +38,7 @@ export const PersonalData: FC = () => {
     const Events = {
         onSubmit(data: TPersonalData) {
             dispatch(setPersonalData(data))
-            return navigate('/order-date')
+            navigate('/order-date')
         },
     }
 
@@ -100,7 +92,7 @@ export const PersonalData: FC = () => {
                     <CustomButton variant="outlined" color="error" size="large">
                         Back to cart
                     </CustomButton>
-                    <CustomButton variant="contained" color="error" size="large" type="submit">
+                    <CustomButton variant="contained" color="error" size="large" type="submit" sx={{ width: '159px' }}>
                         Continue
                     </CustomButton>
                 </div>

@@ -1,5 +1,8 @@
 .personal-data {
   &__container {
     gap: 40px;
+    @include sm {
+      gap: 30px;
+    }
   }
 }

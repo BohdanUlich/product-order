@@ -39,7 +39,7 @@ export const ChooseOrderDate: FC = () => {
                                     <Button
                                         variant={selectedDate?.hours.id === hours.id ? 'contained' : 'outlined'}
                                         size="large"
-                                        sx={{ width: '120px' }}
+                                        sx={{ fontSize: '16px' }}
                                         color="error"
                                         onClick={() => Events.chooseDatehandler(date, hours)}
                                         key={hours.id}
