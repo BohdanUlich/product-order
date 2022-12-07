@@ -94,7 +94,7 @@ export const OrderForm = () => {
                 </div>
             </FormikStep>
 
-            <FormikStep label="Order Date">
+            <FormikStep label="Order Date" isValid={store !== 'Choose a store' && date ? true : false}>
                 <OrderDate store={store} setStore={setStore} selectedDate={date} setDate={setDate} />
             </FormikStep>
 

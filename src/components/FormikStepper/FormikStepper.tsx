@@ -12,7 +12,7 @@ export const FormikStepper = ({ children, ...props }: FormikConfig<FormikValues>
         return step === childrenArray.length - 1
     }
 
-    const onChangeStep = (index: number) => {
+    const onChangeStep = (index: number, child: any) => {
         if (step > index) {
             setStep(index)
         }
@@ -40,7 +40,10 @@ export const FormikStepper = ({ children, ...props }: FormikConfig<FormikValues>
                             {childrenArray.map((child, index) => {
                                 return (
                                     <Step key={child.props.label} completed={step > index || completed}>
-                                        <StepLabel onClick={() => onChangeStep(index)} sx={{ cursor: 'pointer' }}>
+                                        <StepLabel
+                                            onClick={() => onChangeStep(index, child)}
+                                            sx={{ cursor: 'pointer' }}
+                                        >
                                             {child.props.label}
                                         </StepLabel>
                                     </Step>
