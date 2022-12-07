@@ -127,7 +127,7 @@ body {
 .wrapper {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: column-reverse;
   padding-top: 120px;
   height: 100%;
   @include sm {
@@ -190,12 +190,6 @@ body {
   color: $danger;
 }
 
-@import './pages/PersonalData/personalData.scss';
-@import './components/Stepper/stepper.scss';
-@import './pages/OrderDate/components/chooseOrderDate.scss';
-@import './pages/OrderDate/orderDate.scss';
-@import './pages/OrderDate/orderDate.scss';
-@import './pages/Payment/payment.scss';
-@import './pages/Payment/components/PaymentForm/paymentForm.scss';
-@import './pages/OrderData/orderData.scss';
+@import './components/OrderForm/orderForm.scss';
 @import './components/Loader/loader.scss';
+@import './components/FormikStepper/formikStepper.scss';

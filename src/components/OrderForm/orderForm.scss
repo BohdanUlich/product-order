@@ -1,0 +1,133 @@
+.personal-data {
+  &__container {
+    gap: 40px;
+    @include sm {
+      gap: 30px;
+    }
+  }
+}
+
+.order-date {
+  position: relative;
+  &__title {
+    padding-bottom: 20px;
+  }
+  &__input-container {
+    padding: 20px 0;
+  }
+  &__btns {
+    padding-top: 20px;
+    @include sm {
+      flex-direction: column;
+    }
+  }
+}
+
+.choose-date {
+  padding: 20px 0;
+  border-top: 1px solid $border;
+  &__content {
+    max-height: 243px;
+    overflow: hidden;
+    transition: all 0.8s linear;
+    @include md {
+      max-height: 100%;
+    }
+    &.active {
+      max-height: 800px;
+    }
+  }
+  &__row {
+    padding: 20px 0;
+    border-bottom: 1px solid $border;
+  }
+  &__day {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__btn {
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: $danger;
+    font-weight: 500;
+    padding-top: 15px;
+    &::before {
+      content: '<';
+      padding-right: 5px;
+    }
+    @include md {
+      display: none;
+    }
+  }
+  &__btn-group {
+    @include md {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.payment {
+  &__container {
+    gap: 20px;
+  }
+}
+
+.payment-form {
+  padding-top: 20px;
+  border-top: 1px solid $border;
+  &__container {
+    gap: 20px;
+  }
+  &__input-container {
+    &_width {
+      width: 50%;
+      @include md {
+        width: 100%;
+      }
+    }
+    &_small {
+      width: 33%;
+      @include md {
+        width: 100%;
+      }
+    }
+  }
+  &__row {
+    @include md {
+      flex-direction: column;
+      gap: 20px;
+    }
+    &_width {
+      width: 50%;
+      @include md {
+        width: 100%;
+      }
+    }
+  }
+  &__save {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+    &-text {
+      padding-right: 10px;
+      font-size: 16px;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    background: $background;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    span {
+      color: $danger;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+}

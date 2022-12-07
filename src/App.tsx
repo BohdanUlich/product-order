@@ -1,11 +1,7 @@
-import { Router } from './router'
+import { OrderForm } from './components'
 
 function App() {
-    return (
-        <div className="wrapper">
-            <Router />
-        </div>
-    )
+    return <OrderForm />
 }
 
 export default App
